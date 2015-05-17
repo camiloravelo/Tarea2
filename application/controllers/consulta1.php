@@ -8,20 +8,38 @@ class consulta1 extends CI_Controller {
     public function index() {
 
     //    $this->load->database();
-        $this->load->view('consulta1');
-    }
-
-    public function hola() {
- //$this->load->database();
-        $query = $this->db->query('SELECT dept_no FROM dept_manager');
-
-        $d = "";
+       $query = $this->db->query("SELECT concat_ws(' ',first_name,last_name) as nombre_apellido, birth_date, gender  from employees where gender='M' AND birth_date<'1954-01-01'");
+        $d = "<table>
+                <tr>
+                  <th scope='col'><strong>nombre_apellido</strong></th>
+                  <th scope='col'><strong>birth_date </strong></th>
+                  <th scope='col'><strong> gender</strong></th>
+                </tr>";
         foreach ($query->result() as $datos) {
-            $d.=$datos->dept_no . " -- ";
+            $d.= " <tr><td>".$datos->nombre_apellido."</td>";
+            $d.= "<td>".$datos->birth_date."</td>";
+            $d.= "<td>".$datos->gender."</td> </tr>";
         }
         $datosAEnviar = array('hola' => $d);
 
        // $this->load->database();
+        $this->load->view('consulta1',$datosAEnviar);
+    }
+
+    public function hola() {
+        //$this->load->database();
+        $query = $this->db->query('SELECT dept_name FROM departments');
+
+        $d ="<table>
+                <tr>
+                  <th scope='col'><strong>nombre_departamento</strong></th>
+                  </tr>";
+        foreach ($query->result() as $datos) {
+            $d.="<tr><td>".$datos->dept_name."</td></tr>";
+        }
+        $datosAEnviar = array('hola' => $d);
+
+        // $this->load->database();
         $this->load->view('consulta1',$datosAEnviar);
     }
 
