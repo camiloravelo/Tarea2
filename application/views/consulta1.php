@@ -3,7 +3,7 @@
 <title></title>
 </head>
 <body>
-<h1>Hola Mundo2</h1>
+<h1>Consulta: </h1>
 
 <p> <?php echo $hola;?> </p>
 </body>

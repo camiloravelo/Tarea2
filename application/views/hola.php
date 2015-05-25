@@ -16,7 +16,7 @@
 <div id="consulta1">
 <label for="title">Generar consultas1</label> 
 
-<form action="http://localhost:82/tarea2/index.php/consulta1/hola" method="post">
+<form action="http://192.168.1.35:82/tarea2/index.php/consulta1/hola" method="post">
  
  <p><input type="submit"/></p> 
 
@@ -29,7 +29,7 @@
 <label for="title">Generar consultas2</label> 
 
 
-<form action="http://localhost:82/tarea2/index.php/consulta1" method="post">
+<form action="http://192.168.1.35:82/tarea2/index.php/consulta1" method="post">
  
  <p><input type="submit"/></p> 
 
@@ -41,7 +41,7 @@
 <label for="title">Generar consultas3</label> 
 
 
-<form action="http://localhost:82/tarea2/index.php/consulta1" method="post">
+<form action="http://192.168.1.35:82/tarea2/index.php/consulta1/chao" method="post">
  
  <p><input type="submit"/></p> 
 
