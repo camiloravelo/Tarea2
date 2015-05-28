@@ -46,7 +46,7 @@ class consulta1 extends CI_Controller {
 
     public function chao() {
         //$this->load->database();
-        $query = $this->db->query("SELECT e.emp_no as emp_no, e.first_name as first_name, s.salary as salary, d.dept_no as dept_no, dep.dept_name as dept_name  FROM employees e, salaries s, dept_emp  d, departments dep WHERE e.emp_no=s.emp_no AND s.salary > 90000 AND e.emp_no=d.emp_no AND d.dept_no=dep.dept_no GROUP BY e.emp_no");
+        $query = $this->db->query("SELECT e.emp_no as emp_no, e.first_name as first_name, s.salary as salary, d.dept_no as dept_no, dep.dept_name as dept_name  FROM employees e, salaries s, dept_emp  d, departments dep WHERE e.emp_no=s.emp_no AND s.emp_no < 23000 AND e.emp_no=d.emp_no AND d.dept_no=dep.dept_no GROUP BY e.emp_no");
 //as emp_no, e.first_name as first_name, s.salary as salary, d.dept_no as dept_no, dep.dept_name as dept_name 
         $d = "<table>
                 <tr>
