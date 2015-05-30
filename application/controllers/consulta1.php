@@ -8,8 +8,6 @@ class consulta1 extends CI_Controller {
     public function index() {
 
     //    $this->load->database();
-
-
         $this->load->library('pagination');
         $config['base_url'] = 'http://192.168.1.33:8081/tarea2/index.php/consulta1/';
         $config['per_page'] = 100;
@@ -79,7 +77,7 @@ class consulta1 extends CI_Controller {
         if( $getD>0 ) $config['per_page'] = $getD;
         $this->pagination->initialize($config); 
         $this->db->cache_on();
-        $query = $this->db->query("SELECT e.emp_no as emp_no, e.first_name as first_name, s.salary as salary, d.dept_no as dept_no, dep.dept_name as dept_name  FROM employees e, salaries s, dept_emp  d, departments dep WHERE e.emp_no=s.emp_no AND e.emp_no < 20000 AND s.salary >109000 AND e.emp_no=d.emp_no AND d.dept_no=dep.dept_no GROUP BY e.emp_no LIMIT 0".",".$config['per_page']);
+        $query = $this->db->query("SELECT e.emp_no as emp_no, e.first_name as first_name, s.salary as salary, d.dept_no as dept_no, dep.dept_name as dept_name  FROM employees e INNER JOIN  salaries s on e.emp_no=s.emp_no INNER JOIN dept_emp d on e.emp_no=d.emp_no INNER JOIN departments dep on d.dept_no=dep.dept_no  WHERE e.emp_no < 20000 AND s.salary >109000  GROUP BY e.emp_no  LIMIT 0".",".$config['per_page']);
         
         
 
